@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="flex flex-col min-h-screen bg-cover bg-center" style="background-image: url('socialmedia.jpg');">
+    <div class="flex flex-row w-full h-full">
+        <div class="flex items-center justify-center p-8 w-full sm:w-1/2 bg-black bg-opacity-0 rounded-lg">
+            <div class="text-center text-black">
+                <h2 class="text-3xl font-bold mb-4" style="padding-top: 200px ;font-size: 40px;font-style: initial;">About Us</h2>
+                <p class="text-lg" style="align-items: center;font: bolder;">
+                    Welcome to our platform! We provide a variety of social media tools<br> to help you connect and engage
+                    with others. Our mission is to make communication <br>easier,fun, and secure for everyone. Join us today and 
+                    be part of<br> a growing community.
+                </p>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-center flex-grow">
+            <div class="absolute top-24 right-8 p-12 bg-black bg-opacity-25 w-full sm:w-1/2 rounded-lg">
+                <div class="my-4">
+                    <p class="text-2xl font-bold text-center text-white">LOGIN</p>
+                    <form action="first.html" class="my-5 flex flex-col space-y-5">
+                        <div class="flex flex-col">
+                            <label for="username" class="text-white">Username</label>
+                            <input type="text" id="username" name="username" class="border-solid border-2 border-gray-300 rounded-lg px-3 h-10" placeholder="Enter Your Username" required>
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="password" class="text-white">Password</label>
+                            <input type="password" id="password" name="password" class="border-solid border-2 border-gray-300 rounded-lg px-3 h-10" placeholder="***" required>
+                        </div>
+                        <div class="flex justify-end">
+                            <button class="bg-blue-500 text-white px-5 py-3 rounded-lg" type="submit">Login</button><br>
+                        </div>
+                    </form>
+                    <p>New User?
+                        <a href="practice.html" style="color: rgb(10, 123, 253); font: bold; font-size: larger;"> Register</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="flex justify-center items-center gap-6 mt-auto bg-black bg-opacity-30 p-4 rounded-t-lg">
+        <a href="https://www.facebook.com" target="_blank">
+            <img src="WhatsApp Image 2025-03-04 at 12.54.08 PM.jpeg" alt="Facebook" width="30" class="rounded-full">
+        </a>
+        <a href="https://www.whatsapp.com" target="_blank">
+            <img src="wtsapp.jpeg" alt="WhatsApp" width="30" class="rounded-full">
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="insta.jpeg" alt="Instagram" width="30" class="rounded-full">
+        </a>
+    </footer>
+
+</body>
+</html>
