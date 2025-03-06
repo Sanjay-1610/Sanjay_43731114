@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>image gallery</title>
+
+        <style>
+            
+            body{
+                margin: 0px;
+                padding: 0px;
+                min-height: 100vh;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .main{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                background-color: rgb(255, 255, 255);
+                width: 550px;
+                height: 550px;
+                flex-wrap: wrap;
+                border-radius: 10px;
+                
+            }
+
+            .box{
+                width: 150px;
+                height: 150px;
+                background-color: white;
+                margin: 10px;
+                border-radius: 10px;
+            }
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;           
+            }
+
+            footer{
+                background-color: rgb(0, 110, 75);
+                text-align: center;
+                width: 100%;
+                height: 60px;
+                color: white;
+            }
+
+            .hh{
+                background-color: #e9f3ed;
+                width: 100%;
+                text-align: center;
+                
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="hh">
+        <h1>IMAGE GALLERY</h1>
+    </div>
+
+        <div class="main">
+
+            <div>
+            <div class="box"><img src="fd1.jpg"></div>
+            <div class="box"><img src="fd2.jpg"></div>
+            <div class="box"><img src="fd3.jpg"></div>
+        </div>
+
+        <div>
+            <div class="box"><img src="fd4.jpg"></div>
+            <div class="box"><img src="fd5.jpg"></div>
+            <div class="box"><img src="fd6.jpg"></div>
+        </div>
+
+        <div>
+            <div class="box"><img src="fd7.jpg"></div>
+            <div class="box"><img src="fd3.jpg"></div>
+            <div class="box"><img src="fd2.jpg"></div>
+        </div>
+
+
+        </div>
+
+        <footer>
+            <h3>&copy; 2025 @SANJAY</h3>
+        </footer>
+
+
+    </body>
+
+</html>
