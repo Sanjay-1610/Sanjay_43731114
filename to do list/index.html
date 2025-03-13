@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+        }
+
+        .list-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .list-header input {
+            width: 70%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .list-header button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .list-header button:hover {
+            background-color: #45a049;
+        }
+
+        .list-body {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease;
+        }
+
+        .list-item:hover {
+            background-color: #f1f1f1;
+        }
+
+        .list-item p {
+            flex-grow: 1;
+            margin-left: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #333;
+            transition: text-decoration 0.3s ease;
+        }
+
+        .list-item p.done {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .list-item button {
+            background-color: #FF4C4C;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .list-item button:hover {
+            background-color: #FF3B3B;
+        }
+
+        .list-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .list-foot button {
+            padding: 10px 15px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .list-foot button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="list-container">
+        <div class="list-header">
+            <input type="text" id="task-input" placeholder="Enter a new task"/>
+            <button onclick="addNewTask()">Add</button>
+        </div>
+        <div class="list-body"></div>
+        <div class="list-foot">
+            <p id="pending-tasks">Pendings 0</p>
+            <button onclick="reset()">Clear All</button>
+        </div>
+    </div>
+
+    <script>
+        const obj = document.getElementById('task-input');
+        const obj1 = document.getElementsByClassName('list-body')[0];
+        const obj4 = document.getElementById('pending-tasks');
+        const tasks = [];
+
+        function addNewTask() {
+            if (obj.value.trim() !== "") {
+                tasks.push({ name: obj.value, done: false });
+                obj.value = ""; 
+                render();
+            } else {
+                alert("Please enter a task.");
+            }
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1); 
+            render(); 
+        }
+
+        function reset() {
+            tasks.length = 0; 
+            render(); 
+        }
+
+        function done(obj2, index) {
+            tasks[index].done = obj2.checked; 
+            render(); 
+        }
+
+        function render() {
+            let htmlData = '';
+            let pendingCount = 0;
+
+            for (let i = 0; i < tasks.length; i++) {
+                const task = tasks[i];
+                if (!task.done) {
+                    pendingCount++; 
+                }
+
+                htmlData += `
+                <div class="list-item">
+                    <input type="checkbox" ${task.done ? 'checked' : ''} onclick="done(this, ${i})" />
+                    <p class="${task.done ? 'done' : ''}">${task.name}</p>
+                    <button onclick="deleteTask(${i})">X</button>
+                </div>`;
+            }
+
+            obj1.innerHTML = htmlData;
+            obj4.innerHTML = `Pendings ${pendingCount}`; 
+        }
+    </script>
+</body>
+</html>
